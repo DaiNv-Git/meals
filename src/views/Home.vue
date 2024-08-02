@@ -6,16 +6,25 @@
             {{ letter }}
         </router-link>
     </div>
+    <pre>{{ intedients }}</pre>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import axiosClient from '../axiosClient';
+
 
 const store = useStore();
 const meals = computed(() => store.state.meals);
 const letters = 'ABCDEFJHIKLNM'.split("")
+const intedients = ref([])
+onMounted(async () => {
+  const res = await axiosClient.get('/list.php?c=list');
+  console.log(res);
+  intedients.value=res.data
+});
 </script>
 
 <style >
