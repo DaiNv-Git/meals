@@ -6,6 +6,7 @@
    
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
        <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
+            <router-link :to="{name:'mealDeails',params:{id:meal.idMeal}}">
             <img :src="meal.strMealThumb" :alt="strMeal" class="rounded-t-xl w-full h-30 object-cover">
            <div >
             <h3  class=" py-2 font-semibold">{{meal.strMeal}}</h3>
@@ -13,9 +14,9 @@
                 Built Complete Vue 3/Vuex application in 3 hours
             </p>
         </div>
-            <div class="items-center ">
-                <a :href="meal.strYoutube" target="_blank" class="px-3 py-1 rounded-xl border-2 border-red-100
-                bg-red-600  transition-colors text-white" >Youtobe</a>
+    </router-link>
+            <div class="flex items-center justify-between">
+               <YoutubeButton :href="meal.strYoutube">Youtube</YoutubeButton>
                 <!-- <router-link to="/" class="px-2 py-1 rounded-l border-2 border-red-100
                bg-purple-600 text-white transition-colors">View</router-link> -->
         </div>
@@ -27,6 +28,7 @@
 import { computed, onMounted, ref } from 'vue';
 import store from '../store';
 import { useRoute } from 'vue-router';
+import YoutubeButton from '../components/YoutubeButton.vue';
 const meals = computed(()=> store.state.searchedMeals)
 const keyWord = ref('');
  function searchMeals (){
