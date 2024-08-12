@@ -22,10 +22,9 @@ const keyWord = ref('');
 }
 const route = useRoute();
 onMounted (()=>{
-    keyWord.value=route.params.name
-    if(keyWord.value){
-        searchMeals()
-    }
+    keyWord.value=route.params.name ?route.params.name:''
+   
+    searchMeals()
 })
 </script>
 

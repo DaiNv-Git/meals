@@ -4,7 +4,7 @@
         <div class="flex items-center gap-1">
            <router-link :to="{name:'byName'}" class="inline-block items-center px-2 h-full transcition-colors hover:bg-purple-100"> Search meals</router-link>
            <router-link :to="{name:'byLetter'}" class="inline-block items-center px-2 h-full transcition-colors hover:bg-purple-100">  Meals by letters</router-link>
-           <router-link :to="{name:'byIngredient'}" class="inline-block items-center px-2 h-full transcition-colors hover:bg-purple-100"> Meals by Ingredients</router-link>
+           <router-link :to="{name:'ingredients'}" class="inline-block items-center px-2 h-full transcition-colors hover:bg-purple-100"> Meals by Ingredients</router-link>
         </div>
     </head>
 </template>

@@ -1,7 +1,7 @@
-import { data } from "autoprefixer";
-
 const state = {
   searchedMeals: [],
+  mealsByLetter: [],
+  mealsByIngredient: [],
 };
 
 export default state;
